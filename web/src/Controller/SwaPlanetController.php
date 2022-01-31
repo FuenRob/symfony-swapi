@@ -53,16 +53,7 @@ class SwaPlanetController extends AbstractController
         $planet = new Planet();
 
         $planet->setId($parameters['id']);
-
-        /*if (empty($parameters['name'])) {
-            return new JsonResponse(
-                array(
-                    "message" => "El campo name es obligatorio.",
-                )
-            );
-        } else {*/
-            $planet->setName($parameters['name']);
-        //}
+        $planet->setName($parameters['name']);
 
         if (!empty($parameters['diameter'])) {
             $planet->setDiameter($parameters['diameter']);
@@ -76,10 +67,6 @@ class SwaPlanetController extends AbstractController
             $planet->setRotationPeriod($parameters['orbital_period']);
         }
 
-        /*$validator = Validation::createValidatorBuilder()
-            ->addMethodMapping('loadValidatorMetadata')
-            ->getValidator();
-        */
         $violations = $this->validator->validate($planet);
 
         if (count($violations) > 0) {
