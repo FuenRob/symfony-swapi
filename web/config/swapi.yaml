@@ -1,0 +1,3 @@
+serviceUrl: https://swapi.dev/api
+planetService: /planets
+cacheTime: 300
